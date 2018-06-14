@@ -11,8 +11,12 @@
 
     <title>Huella Pet</title>
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/huellacss.css')}}">
-    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+    
+     
+    
+      
+      <link rel="stylesheet" type="text/css" href="{{ asset('css/huellacss.css')}}">
+      <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
@@ -70,7 +74,7 @@
             </div>
             <nav class="navegadorprincipal">
                 <ul>
-                  <li><a href="{{ route('home') }}">{{ __('Home') }}</a></li>
+                  <li><a href="{{ route('home') }}">{{ __('Inicio') }}</a></li>
                   <li><a href="./nosotros.php">Nosotros</a></li>
                   <li><a href="#productos">Tienda</a></li>
                   <li><a href="./faqs.php">Preguntas</a></li>
@@ -82,7 +86,7 @@
                         <div class="dropdown">
                             <button class="dropbtn" onclick="desplegar(this)"><img src="{{ asset('images/logoMenu.png') }}"></button>
                             <div class="dropdown-content">
-                              <a href="./index.php">Home</a>
+                              <a href="{{ route('home') }}">Inicio</a>
                                 <a href="./nosotros.php">Nosotros</a>
                                 <a href="./index.php">Tienda</a>
                                 <a href="./faqs.php">Preguntas</a>
@@ -105,12 +109,11 @@
     <div>
         @yield('home')
     </div>
-    <div>
-        @yield('prefinal')
-    </div>
+  
+
     
 
-<!-- Footer -->
+<!-- Footer
     <footer>
       <div class="seguinos">
           <ul>
@@ -118,7 +121,7 @@
             <li><a href="http://twitter.com" target="new"><img src="images/tw.png" alt="Twitter"></a></li>
             <li><a href="http://instagram.com" target="new"><img src="images/it.png" alt="Instagram"></a></li>
             </ul>
-        </div>
+        </div> -->
         <div class="seguinos">
             <p class="legales2">Copy right Lorem ipsum dolor sit amet.</p>
         </div>

@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('/', 'testController@welcome');
+
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('modificarDatos','ModificarController@modificar')->name('modificarDatos');;
+
+Route::get('/', 'testController@welcome')->name('home');
