@@ -17,114 +17,17 @@
                     <h1>PRODUCTOS DEL MES</h1>
                     <hr>
                     <div class="todoslosproductos">
+                       @foreach($dato as $datoBase) 
                         <article class="product">
                             <img src="images/productouno.jpg" alt="comida para perro">
-                            <h2>Pedegree Adultos</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut recusandae eaque debitis sint necessitatibus, officia ex.</p>
+                            <h2>{{ $datoBase->name }}</h2>
+                            <p>{{ $datoBase->description }}</p>
                             <div class="btn-comprar">
                                 <a href="#">Comprar</a>
                             </div>
                         </article>
+                        @endforeach
                         
-                        <article class="product">
-                            <img src="images/productouno.jpg" alt="comida para perro">
-                            <h2>Pedegree Adultos</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut recusandae eaque debitis sint necessitatibus, officia ex.</p>
-                            <div class="btn-comprar">
-                                <a href="#">Comprar</a>
-                            </div>
-                        </article>
-                        
-                        <article class="product">
-                            <img src="images/productouno.jpg" alt="comida para perro">
-                            <h2>Pedegree Adultos</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut recusandae eaque debitis sint necessitatibus, officia ex.</p>
-                            <div class="btn-comprar">
-                                <a href="#">Comprar</a>
-                            </div>
-                        </article>
-                        
-                        <article class="product">
-                            <img src="images/productouno.jpg" alt="comida para perro">
-                            <h2>Pedegree Adultos</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut recusandae eaque debitis sint necessitatibus, officia ex.</p>
-                            <div class="btn-comprar">
-                                <a href="#">Comprar</a>
-                            </div>
-                        </article>
-                        
-                        <article class="product">
-                            <img src="images/productouno.jpg" alt="comida para perro">
-                            <h2>Pedegree Adultos</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut recusandae eaque debitis sint necessitatibus, officia ex.</p>
-                            <div class="btn-comprar">
-                                <a href="#">Comprar</a>
-                            </div>
-
-                        </article>
-                        
-                        <article class="product">
-                            <img src="images/productouno.jpg" alt="comida para perro">
-                            <h2>Pedegree Adultos</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut recusandae eaque debitis sint necessitatibus, officia ex.</p>
-                            <div class="btn-comprar">
-                                <a href="#">Comprar</a>
-                            </div>
-                        </article>
-
-                        <article class="product ocultar">
-                            <img src="images/productouno.jpg" alt="comida para perro">
-                            <h2>Pedegree Adultos</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut recusandae eaque debitis sint necessitatibus, officia ex.</p>
-                            <div class="btn-comprar">
-                                <a href="#">Comprar</a>
-                            </div>
-                        </article>      
-                        
-                        <article class="product ocultar">
-                            <img src="images/productouno.jpg" alt="comida para perro">
-                            <h2>Pedegree Adultos</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut recusandae eaque debitis sint necessitatibus, officia ex.</p>
-                            <div class="btn-comprar">
-                                <a href="#">Comprar</a>
-                            </div>
-                        </article>
-                        
-                        <article class="product ocultar">
-                            <img src="images/productouno.jpg" alt="comida para perro">
-                            <h2>Pedegree Adultos</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut recusandae eaque debitis sint necessitatibus, officia ex.</p>
-                            <div class="btn-comprar">
-                                <a href="#">Comprar</a>
-                            </div>
-                        </article>
-                        
-                        <article class="product ocultar">
-                            <img src="images/productouno.jpg" alt="comida para perro">
-                            <h2>Pedegree Adultos</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut recusandae eaque debitis sint necessitatibus, officia ex.</p>
-                            <div class="btn-comprar">
-                                <a href="#">Comprar</a>
-                            </div>
-                        </article>
-
-                        <article class="product ocultar">
-                            <img src="images/productouno.jpg" alt="comida para perro">
-                            <h2>Pedegree Adultos</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut recusandae eaque debitis sint necessitatibus, officia ex.</p>
-                            <div class="btn-comprar">
-                                <a href="#">Comprar</a>
-                            </div>
-                        </article>
-
-                        <article class="product ocultar">
-                            <img src="images/productouno.jpg" alt="comida para perro">
-                            <h2>Pedegree Adultos</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut recusandae eaque debitis sint necessitatibus, officia ex.</p>
-                            <div class="btn-comprar">
-                                <a href="#">Comprar</a>
-                            </div>
-                        </article>
                     </div>
                </div>
 <div>
