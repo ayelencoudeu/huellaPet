@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {   
-        $dato=Product::all();
+        $dato=Product::paginate(9);
         return view('home')->with(compact('dato'));
         
 

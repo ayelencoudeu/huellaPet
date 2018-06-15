@@ -11,7 +11,7 @@ class testController extends Controller
     public function welcome()
     {	
     	
-    	$dato=Product::all(); 
+    	$dato=Product::paginate(9); 
     	return view('home')->with(compact('dato'));
     }
 }

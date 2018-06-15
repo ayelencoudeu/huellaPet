@@ -12,14 +12,14 @@
                         <img src="images/promodos.png" alt="mascotas">
                     </div>
                 </div>
-
+                    
                 <div class="productos" id="productos">
                     <h1>PRODUCTOS DEL MES</h1>
                     <hr>
                     <div class="todoslosproductos">
                        @foreach($dato as $datoBase) 
                         <article class="product">
-                            <img src="images/productouno.jpg" alt="comida para perro">
+                            <img src=" {{ $datoBase->images()->first()->image }}" alt="comida para perro">
                             <h2>{{ $datoBase->name }}</h2>
                             <p>{{ $datoBase->description }}</p>
                             <div class="btn-comprar">
@@ -30,6 +30,9 @@
                         
                     </div>
                </div>
+               <div>
+              {{ $dato->links() }}
+              </div>
 <div>
     @include('prefinal')
 </div>
