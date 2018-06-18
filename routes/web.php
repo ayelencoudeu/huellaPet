@@ -10,20 +10,32 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
+Route::get('/', 'testController@welcome');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('modificarDatos','ModificarController@modificar')->name('modificarDatos');
+Route::get('/products/{id}', 'ProductController@show'); //vista de producto
 
-Route::get('modificarDatos','ModificarController@modificar')->name('modificarDatos');;
+Route::post('/cart', 'CartDetailController@store' );
 
-Route::get('/', 'testController@welcome')->name('home');
 
-Route::get('/admin/products', 'ProductController@index'); // listado
+Route::middleware(['auth','admin'])->group(function () {
 
-Route::get('/admin/products/create', 'ProductController@create'); // crear
 
-Route::post('/admin/products', 'ProductController@store'); // registrar
+		Route::get('/admin/products', 'Admin\ProductController@index'); // listado
+		Route::get('/admin/products/create', 'Admin\ProductController@create'); // crear
+		Route::post('/admin/products', 'Admin\ProductController@store'); // registrar
+
+		Route::get('/admin/products/{id}/edit', 'Admin\ProductController@edit'); // formulario de Edicion
+		Route::post('/admin/products/{id}/edit', 'Admin\ProductController@update'); // actualizar
+		Route::post('/admin/products/{id}/delete', 'Admin\ProductController@destroy'); // form eliminar
+
+		Route::get('/admin/products/{id}/images', 'Admin\ImageController@index'); // form eliminar
+		Route::post('/admin/products/{id}/images', 'Admin\ImageController@store'); // registrar
+		Route::delete('/admin/products/{id}/images', 'Admin\ImageController@destroy'); // imagen eliminar
+
+		Route::get('/admin/products/{id}/images/select/{image}', 'Admin\ImageController@select');
+});
 

@@ -3,9 +3,8 @@
 @section('registro')
 <!-- Formulario html -->
     <div class="newsleterr" onclick="contraer(this)">
-      <h3><strong>Registrar un nuevo Producto</strong></h3>
-        
-     @if($errors->any())
+      <h3><strong>Editar Producto</strong></h3>
+       @if($errors->any())
       <div>
         <ul>
           @foreach ($errors->all() as $error)
@@ -18,12 +17,11 @@
         </ul>
       </div>
     @endif
-
-      <form class="contact_form" method="POST" enctype="multipart/form-data" action="{{ url('/admin/products') }}">
+      <form class="contact_form" method="POST" enctype="multipart/form-data" action="{{ url('/admin/products/'.$product->id.'/edit') }}">
          {{ csrf_field() }}
       <ul>
         <li>
-           <input id="name" type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{ old('name') }}" required autofocus placeholder="*Nombre del Producto" />
+           <input id="name" type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{ old('name', $product->name) }}" required autofocus/>
             @if ($errors->has('name'))
             <span class="invalid-feedback">
               <strong>{{ $errors->first('name') }}</strong>
@@ -31,7 +29,7 @@
             @endif      
         </li>
         <li>
-          <input id="description" type="text" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" value="{{ old('description') }}" required autofocus placeholder="*Resumen del producto"/>
+          <input id="description" type="text" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" value="{{ old('description', $product->description) }}" required autofocus/>
           @if ($errors->has('description'))
           <span class="invalid-feedback">
             <strong>{{ $errors->first('description') }}</strong>
@@ -39,7 +37,7 @@
           @endif
         </li>
         <li>
-          <textarea id="long_description" class="form-control{{ $errors->has('long_description') ? ' is-invalid' : '' }}" rows="5" name="long_description" required placeholder="*description del producto" />{{ old('long_description') }}</textarea>
+          <textarea id="long_description" class="form-control{{ $errors->has('long_description') ? ' is-invalid' : '' }}" name="long_description" rows="5" required />{{ old('description',$product->description) }}</textarea>
             @if ($errors->has('long_description'))
             <span class="invalid-feedback">
                 <strong>{{ $errors->first('long_description') }}</strong>
@@ -48,7 +46,7 @@
         </li>
        
         <li>
-            <input id="price" type="number" class="form-control{{ $errors->has('price') ? ' is-invalid' : '' }}" name="price" required placeholder="*precio" >
+            <input id="price" type="number" class="form-control{{ $errors->has('price') ? ' is-invalid' : '' }}" name="price" required value="{{ old('description', $product->price) }}" step="0.01" />
             @if ($errors->has('price'))
                 <span class="invalid-feedback">
                     <strong>{{ $errors->first('price') }}</strong>
@@ -63,7 +61,7 @@
             @endif
         </li>
         <li>
-            <input type="submit" name="registro" value="{{ __('Crear') }}" >
+            <input type="submit" name="registro" value="{{ __('Guardar') }}" >
             <a href="{{ url('/admin/products/') }}" >Cancelar</a>
         </li>
       </ul>

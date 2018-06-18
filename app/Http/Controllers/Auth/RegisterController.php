@@ -52,7 +52,7 @@ class RegisterController extends Controller
             'nombre' => 'required|string|max:255',
             'apellido' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'imagen' => 'required|string|max:255',
+            'imagen' => 'required|file|max:1500',
             'nacionalidad' => 'required|string|max:255',
             'password' => 'required|string|min:6|confirmed'
         ]);
@@ -64,15 +64,42 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+   
+    /* public function store(Request $request)
     {
+        $file= $request->file('photo');
+        $path = public_path() . '/images/products';
+        $fileName=uniqid().$file->getClientOriginalName();
+        $moved = $file->move($path, $fileName);
+
+        //crear un registro
+        if($moved){
+            return $data['imagen']=$fileName;
+        }
+       
+
+        
+    }*/
+
+    protected function create(array $data)
+    {   
+       
+        $file= $data['imagen'];
+        $path = public_path() . '/images/usuario';
+        $fileName=uniqid().$file->getClientOriginalName();
+        $moved = $file->move($path, $fileName);
+
+        //crear un registro
+        if($moved){
         return User::create([
             'nombre' =>$data['nombre'],
             'apellido' => $data['apellido'],
             'email' => $data['email'],
-            'imagen' => $data['imagen'],
+            'imagen' => $fileName,
             'nacionalidad' => $data['nacionalidad'],
             'password' => Hash::make($data['password'])
         ]);
+        }
     }
+
 }

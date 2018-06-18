@@ -5,25 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 
+
+
+
 class ProductController extends Controller
 {
-    public function index()
-    {
+   public function show($id)
+   {	
+   		$product= Product::find($id);	
+   	  
+   		$images= $product->images;
+   		$imageMostrar=collect();
 
-    	$products=Product::paginate(10);
-    	return view('admin.products.index')->with(compact('products'));//listado
+   		foreach ($images as $key => $laImagen) {
+   			$imageMostrar->push($laImagen);
+   		}
 
-
-    }
-
-    public function create()
-    {
-    	return view('admin.products.create');// formulario de registro
-    }
-
-
-    public function store()
-    {
-    	// registra el nuevo producto en la base
-    }
+   	  return view('products.show')->with(compact('product','imageMostrar'));
+   }
 }

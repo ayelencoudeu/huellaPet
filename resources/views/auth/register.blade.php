@@ -5,7 +5,7 @@
     <div class="newsleterr" onclick="contraer(this)">
       <h3><strong>CREAR CUENTA</strong></h3>
 
-      <form class="contact_form" method="POST" enctype="multipart/form-data" action="{{ route('register') }}">
+      <form class="contact_form" method="POST" enctype="multipart/form-data" action="">
          {{ csrf_field() }}
       <ul>
         <li>
@@ -57,7 +57,7 @@
         </li>
         <li>
            
-           <input id="imagen" type="text" name="imagen" class="form-control" placeholder="Subi tu foto" class="form-control{{ $errors->has('imagen') ? ' is-invalid' : '' }}" required />
+           <input id="imagen" type="file" name="imagen" class="form-control{{ $errors->has('imagen') ? ' is-invalid' : '' }}" required />
            @if ($errors->has('imagen'))
             <span class="invalid-feedback">
                 <strong>{{ $errors->first('imagen') }}</strong>
@@ -65,8 +65,8 @@
             @endif
         </li>
         <li>
-            <input type="submit" name="registro" value="{{ __('Registro') }}" >
-        </li>
+            <input type="submit" name="registro" value="{{ __('Registro') }}"  class="boton"><br>
+      </li>
       </ul>
       </form>
       <p class="legales">Al registrarme, declaro que soy mayor de edad y acepto los Términos y condiciones y las Políticas de Huella Pet.</p>
