@@ -23,10 +23,10 @@
 
 <!-- CSS del proyecto -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/huellacss.css')}}">
-    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+    
 
   </head>
 <!-- Encabezado -->
@@ -50,91 +50,37 @@
                     </ul>
                   </nav>
                   <div class='carrito'>
-                  <img src="{{ asset('images/carrito.png') }}" alt='carrito'><p>Carrito: Vacio</p>
+                  <img src="{{ asset('images/carrito.png') }}" alt='carrito'><p>Carrito:Vacio</p>
                   </div>
                 </div>
             @else
-            <div class='carrito'>
-                  <img src="{{ asset('images/carrito.png') }}" alt='carrito'><p>Carrito: Vacio</p>
+            <div class="menuUsuario">  
+                <div class="dropdown Imagen" >
+                  <img src="{{ asset('images/usuario/'.Auth::user()->imagen) }}" width="40" height="40">
+                </div>   
+                
+                <div class="dropdown">
+                  <button class="dropbtn">{{ Auth::user()->nombre }}</button>
+                    <div class="dropdown-content">
+                      <a href="{{ route('modificarDatos') }}">Modificar Datos</a>
+                      @if(auth()->user()->admin)
+                        <a href="{{ url('/admin/products') }}">Gestionar Datos</a>
+                      @endif
+                      <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Salir') }}</a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                      </form>
+                    </div>
+                </div>
+                <div class="dropdown">
+                  <button class="dropbtn">Mi Carrito</button>
+                      <div class="dropdown-content">
+                        <a href="{{ url('/usuarioCompra') }}">Mi Compra</a>
+                        <a href="">Lista</a>
+                      </div>
+                      
+                </div>
             </div>
-            
-              <ul class="nav nav-pills nav-pills-primary" role="tablist">
-              <li>
-               
-                <img src="{{  asset('images/usuario/'.Auth::user()->imagen) }}" width="30" height="30">
-              </li>
-                <span>  {{ Auth::user()->nombre }} </span>
-                        
-               </li>
-               
-               <li>
-                  <a href="{{ route('modificarDatos') }}">Datos</a>
-              </li>
-              @if (auth()->user()->admin)
-              <li >
-                <a href="{{ url('/admin/products') }}">Gestionar Datos</a>
-              </li>
-              @endif
-              
-              <li>
-                  <a class="dropdown-item" href="{{ route('logout') }}"
-                  onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                  {{ __('Salir') }}
-                  </a>
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                  @csrf
-                  </form>
-              </li>
-                <ul>
-                <li>
-                  <a href="#tasks" role="tab" data-toggle="tab">
-                    <i class="material-icons">Pedidos Realizados</i>
-                    
-                  </a>
-                </li>
-                    
-                <li>
-                  <a href="#tasks" role="tab" data-toggle="tab">
-                    <i class="material-icons">Lista Pedidos</i>
-                    
-                  </a>
-                </li>
-
-              </ul>
-              <table class="table">
-                <thead>
-                    
-                </thead>
-                <tbody>
-                    @foreach (auth()->user()->cart->details as $detalles)
-                     <tr>
-                        <td class="text-center"><img src="{{ $detalles->feature_image_url }}"></td>
-                        <td><a href="{{ url('/products/'.$detalles->id)}}" height="50" ></a>{{ $detalles->name}}</td>
-                        <td class="text-right">{{ $detalles->price}}</td>
-                        <td class="td-actions text-right">
-                    <form method="post" action="{{ url('/admin/products/'.$detalles->id) }}">
-                    {{ csrf_field() }}
-                    {{ method_field('DELETE') }}    
-                        
-                        <a href="{{ url('/products/'.$detalles->id) }}" target="_blank" rel="tooltip" title="ver Producto" class="btn btn-info btn-simple btn-xs">
-                                <i class="fa fa-user"></i>
-                        </a>
-                           
-                        <button type="submit" rel="tooltip" title="eliminar Producto" class="btn btn-danger btn-simple btn-xs">
-                                <i class="fa fa-times"></i>
-                        </button>
-                        
-                        </form>
-                            
-                        </td>
-                    </tr>
-                    @endforeach
-               </tbody>
-            </table>
-
-
-
-
             @endguest
             <div class="logo">
               <img src="{{ asset('images/logo.png') }}">
@@ -151,9 +97,11 @@
             </nav>
             <nav class="navegadorprincipalmobile">
                         <div class="dropdown">
-                            <button class="dropbtn" onclick="desplegar(this)"><img src="{{ asset('images/logoMenu.png') }}"></button>
+                            <button class="dropbtn" onclick="desplegar(this)">
+                              <img src="{{ asset('images/logoMenu.png') }}">
+                            </button>
                             <div class="dropdown-content">
-                              <a href="{{ route('home') }}">Inicio</a>
+                              <a href="{{ url('/home') }}">{{ __('Inicio') }}</a>
                                 <a href="./nosotros.php">Nosotros</a>
                                 <a href="./index.php">Tienda</a>
                                 <a href="./faqs.php">Preguntas</a>
@@ -178,6 +126,9 @@
     </div>
    <div>
         @yield('show')
+    </div>
+       <div>
+        @yield('usuarioCompra')
     </div>
 
     

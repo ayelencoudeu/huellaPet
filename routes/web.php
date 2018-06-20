@@ -16,9 +16,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('modificarDatos','ModificarController@modificar')->name('modificarDatos');
+
 Route::get('/products/{id}', 'ProductController@show'); //vista de producto
 
-Route::post('/cart', 'CartDetailController@store' );
+Route::post('/cart', 'CartDetailController@store');
+Route::delete('/cart', 'CartDetailController@destroy');
+
+Route::post('/order', 'CartController@update');
+
+Route::get('usuarioCompra', 'usuarioCompraController@show')->name('usuarioCompra');
 
 
 Route::middleware(['auth','admin'])->group(function () {

@@ -39,13 +39,13 @@ class User extends Authenticatable
         if($cart)
                 return $cart;
 
-       
-            $cart  = new Cart();
-            $cart->status = 'Active';
-            $cart->user_id = $this->id;
-            $cart->save();
+       //else
+        $cart  = new Cart();
+        $cart->status = 'Active';
+        $cart->user_id = $this->id;
+        $cart->save();
 
-            return $cart->id;
+        return $cart;
         
     }
 
