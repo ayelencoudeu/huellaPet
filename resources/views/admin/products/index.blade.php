@@ -25,11 +25,11 @@
                         <td class="text-center">{{ $datoProducto->id }}</td>
                         <td>{{ $datoProducto->name }}</td>
                         <td>{{ $datoProducto->description }}</td>
-                        <td>{{ $datoProducto->category ? $datoProducto->category->name : 'General' }}</td>
+                        <td>{{ $datoProducto->category_name }}</td>
                         <td class="text-right">{{ $datoProducto->price }}</td>
                         <td class="td-actions text-right">
                     <form method="post" action="{{ url('/admin/products/'.$datoProducto->id.'/delete') }}">{{ csrf_field() }}
-                        <a href="" type="button" rel="tooltip" title="ver Producto" class="btn btn-info btn-simple btn-xs">
+                        <a href="{{ url('products/'.$datoProducto->id)}}" type="button" rel="tooltip" title="ver Producto" class="btn btn-info btn-simple btn-xs" target="_bl">
                                 <i class="fa fa-user"></i>
                         </a>
                            

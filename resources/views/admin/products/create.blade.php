@@ -21,7 +21,18 @@
 
       <form class="contact_form" method="POST" enctype="multipart/form-data" action="{{ url('/admin/products') }}">
          {{ csrf_field() }}
+         
       <ul>
+        <li>
+           <select name="category_id"> 
+              <option value="0">General</option>
+              @foreach ($categories as $datoCategoria )
+                <option value="{{ $datoCategoria->id }}">{{ $datoCategoria->name}}</option>
+
+              @endforeach
+           </select>    
+        </li>
+
         <li>
            <input id="name" type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{ old('name') }}" required autofocus placeholder="*Nombre del Producto" />
             @if ($errors->has('name'))

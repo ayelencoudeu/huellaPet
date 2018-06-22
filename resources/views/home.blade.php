@@ -12,6 +12,13 @@
                         <img src="images/promodos.png" alt="mascotas">
                     </div>
                 </div>
+
+                <form method="get" action="{{url('/search')}}">
+                    <input name="pregunta" type="text" value="" placeholder="Buscar" class="form-control"/>
+                <button type="submit">
+                    <i clas="material-icons"> buscar</i>
+                </button>
+                </form>
                 <div class="productos" id="productos">
                     <h1>PRODUCTOS DEL MES</h1>
                     <hr>

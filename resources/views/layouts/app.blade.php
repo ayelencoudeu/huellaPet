@@ -62,9 +62,10 @@
                 <div class="dropdown">
                   <button class="dropbtn">{{ Auth::user()->nombre }}</button>
                     <div class="dropdown-content">
-                      <a href="{{ route('modificarDatos') }}">Modificar Datos</a>
+                      <a href="{{ route('modificarDatos') }}">Editar Datos</a>
                       @if(auth()->user()->admin)
-                        <a href="{{ url('/admin/products') }}">Gestionar Datos</a>
+                        <a href="{{ url('/admin/products') }}">Editar Productos</a>
+                        <a href="{{ url('/admin/categories') }}">Editar Categorias</a>
                       @endif
                       <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Salir') }}</a>
                       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -89,7 +90,7 @@
                 <ul>
                   <li><a href="{{ url('/home') }}">{{ __('Inicio') }}</a></li>
                   <li><a href="./nosotros.php">Nosotros</a></li>
-                  <li><a href="#productos">Tienda</a></li>
+                  <li><a href="{{ url('/categories') }}">Tienda</a></li>
                   <li><a href="./faqs.php">Preguntas</a></li>
                   <li><a href="#contacto">Contacto</a></li>
 
@@ -103,7 +104,7 @@
                             <div class="dropdown-content">
                               <a href="{{ url('/home') }}">{{ __('Inicio') }}</a>
                                 <a href="./nosotros.php">Nosotros</a>
-                                <a href="./index.php">Tienda</a>
+                                <a href="{{ url('/categories/') }}">Tienda</a>
                                 <a href="./faqs.php">Preguntas</a>
                                 <a href="./index.php">Contacto</a>
                             </div>

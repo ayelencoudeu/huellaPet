@@ -21,6 +21,15 @@
          {{ csrf_field() }}
       <ul>
         <li>
+           <select name="category_id"> 
+              <option value="0">General</option>
+              @foreach ($categories as $datoCategoria )
+                <option value="{{ $datoCategoria->id }}" @if( $datoCategoria->id == old('category_id',$product->category_id)) selected @endif >{{ $datoCategoria->name}}</option>
+              @endforeach
+           </select>    
+        </li>
+
+        <li>
            <input id="name" type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{ old('name', $product->name) }}" required autofocus/>
             @if ($errors->has('name'))
             <span class="invalid-feedback">

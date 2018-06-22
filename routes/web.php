@@ -18,6 +18,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('modificarDatos','ModificarController@modificar')->name('modificarDatos');
 
 Route::get('/products/{id}', 'ProductController@show'); //vista de producto
+Route::get('/categories', 'CategoryController@tienda'); //vista de producto
+Route::get('/categories/{category}', 'CategoryController@show'); //vista de producto
+Route::get('/search', 'SearchController@show'); //buscador
 
 Route::post('/cart', 'CartDetailController@store');
 Route::delete('/cart', 'CartDetailController@destroy');
@@ -43,5 +46,15 @@ Route::middleware(['auth','admin'])->group(function () {
 		Route::delete('/admin/products/{id}/images', 'Admin\ImageController@destroy'); // imagen eliminar
 
 		Route::get('/admin/products/{id}/images/select/{image}', 'Admin\ImageController@select');
+
+
+		Route::get('/admin/categories', 'Admin\CategoryController@index'); // listado de categorias
+		Route::get('/admin/categories/create', 'Admin\CategoryController@create'); // crear nuevas categorias
+		Route::post('/admin/categories', 'Admin\CategoryController@store'); // registrar
+
+		Route::get('/admin/categories/{id}/edit', 'Admin\CategoryController@edit'); // formulario de Edicion
+		Route::post('/admin/categories/{id}/edit', 'Admin\CategoryController@update'); // actualizar
+		Route::delete('/admin/categories/{id}', 'Admin\CategoryController@destroy'); // form eliminar Eliminar
 });
+
 
