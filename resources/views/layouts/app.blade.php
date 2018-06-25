@@ -162,6 +162,8 @@
     }
 
     </script>
+
+    @yield('scripts')
 </html>
 
 

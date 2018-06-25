@@ -15,7 +15,7 @@
 
                 <form method="get" action="{{url('/search')}}">
                     <input name="pregunta" type="text" value="" placeholder="Buscar" class="form-control"/>
-                <button type="submit">
+                <button type="submit" id="search">
                     <i clas="material-icons"> buscar</i>
                 </button>
                 </form>
@@ -46,6 +46,30 @@
 </div>
 @endsection
 
+@section('scripts')
+    <script type="text/javascript" src="{{ asset('/js/typeahead.bundle.js')}}"></script>
+    <script>
+    $(function(){
+        var states = new Bloodhound({
+          datumTokenizer: Bloodhound.tokenizers.whitespace,
+          queryTokenizer: Bloodhound.tokenizers.whitespace,
+          // `states` is an array of state names defined in "The Basics"
+           prefetch: '{{ url("products/json")}}'
+        });
+
+        $('#bloodhound .typeahead').typeahead({
+          hint: true,
+          highlight: true,
+          minLength: 1
+        },
+        {
+          name: 'products',
+          source: products
+        });
+
+    });
+    </script>
+@endsection
 
 <!-- <div class="container">
     <div class="row justify-content-center">

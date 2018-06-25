@@ -15,12 +15,18 @@ Route::get('/', 'testController@welcome');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/search', 'SearchController@show'); //buscador
+Route::get('/products/json', 'SearchController@data'); //buscador
+
 Route::get('modificarDatos','ModificarController@modificar')->name('modificarDatos');
 
 Route::get('/products/{id}', 'ProductController@show'); //vista de producto
 Route::get('/categories', 'CategoryController@tienda'); //vista de producto
 Route::get('/categories/{category}', 'CategoryController@show'); //vista de producto
+
 Route::get('/search', 'SearchController@show'); //buscador
+Route::get('/products/json', 'SearchController@data'); //buscador
 
 Route::post('/cart', 'CartDetailController@store');
 Route::delete('/cart', 'CartDetailController@destroy');
