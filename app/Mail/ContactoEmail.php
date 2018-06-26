@@ -7,28 +7,20 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-use App\User;
-use App\Cart;
-use App\CartDetail;
-
-class NewOrder extends Mailable
+class ContactoEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $user;
-    public $cart;
-    
-
+    public $data;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(User $user, Cart $cart)
+    public function __construct($data)
     {
-        $this->user = $user;
-        $this->cart = $cart;
-        
+       $this->data = $data;
+       
     }
 
     /**
@@ -37,8 +29,9 @@ class NewOrder extends Mailable
      * @return $this
      */
     public function build()
-    {
-        return $this->view('emails.new-order')->subject('Nuevo Pedido');
+    {   
+
+        return $this->view('emails.new-contacto')->with(compact('data'))->subject('Nuevo Contacto');
     }
-    
-}
+
+ }

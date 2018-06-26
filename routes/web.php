@@ -34,9 +34,12 @@ Route::get('/categories/{category}', 'CategoryController@show'); //vista de prod
 
 Route::get('/nosotros', 'NosotrosController@nosotros')->name('nosotros'); //nosotros 
 Route::get('/faqs', 'FaqsController@faqs')->name('faqs'); // faqs 
-Route::get('/contacto', 'ContactoController@contacto')->name('contacto'); // contacto
 
-Route::get('/search', 'SearchController@show'); //buscador
+Route::get('/contacto', 'ContactoController@contacto')->name('contacto'); // contacto
+Route::post('/contacto', 'ContactoController@contactoEmail')->name('contacto'); // contacto
+Route::post('/contacto/news', 'ContactoController@contactoNews')->name('contacto'); // contacto
+
+//Route::get('/search', 'SearchController@show'); //buscador
 
 Route::post('/cart', 'CartDetailController@store');
 Route::delete('/cart', 'CartDetailController@destroy');

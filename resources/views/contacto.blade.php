@@ -6,20 +6,37 @@
 	<div class="consultanos" id="contacto">
 	   <h3>DEJANOS TU CONSULTA</h3>
 	   <hr>
-	   <form class="contact_form" action="" method="post" name="contact_form">
+	   <form class="contact_form" action="{{ url('/contacto')}}" method="post" name="contact_form">
+	   	 {{ csrf_field() }}
 	      <ul>
 	         <li>
-	            <input type="text" name="nombre" placeholder="*tu nombre" required/>
-	         </li>
-	         <li>
-	            <input type="text" name="email" placeholder="*tu email" required/>
-	         </li>
-	         <li>
-	            <textarea type="textarea" name="mensaje" placeholder="*tu mensaje"></textarea>
-	         </li>
-	         <li>
-	            <input type="submit" name="enviarcons" value="enviar" placeholder="ENVIAR">
-	         </li>
+	            <input id="nombre" type="text" name="nombre" class="form-control{{ $errors->has('nombre') ? ' is-invalid' : '' }}" value="{{ old('nombre') }}" required placeholder="*Nombre" />
+	            @if ($errors->has('nombre'))
+	            <span class="invalid-feedback">
+	              <strong>{{ $errors->first('nombre') }}</strong>
+	            </span>
+	            @endif  
+			</li>
+	        <li>
+	            <input id="email" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required placeholder="*Email" />
+		        @if ($errors->has('email'))
+		        <span class="invalid-feedback">
+		            <strong>{{ $errors->first('email') }}</strong>
+		        </span>
+            	@endif
+			</li>
+	        <li>
+	        <textarea type="textarea" id="mensaje" class="form-control{{ $errors->has('long_description') ? ' is-invalid' : '' }}" rows="5" name="mensaje" required placeholder="*tu mensaje" />{{ old('mensaje') }}</textarea>
+            @if ($errors->has('mensaje'))
+            <span class="invalid-feedback">
+                <strong>{{ $errors->first('mensaje') }}</strong>
+            </span>
+            @endif    
+			</li>
+	        <li>
+	        	<input type="submit" name="enviarcons" value="{{ __('enviar') }}" placeholder="ENVIAR" >
+            	
+	        </li>
 	      </ul>
 	   </form>
 	</div>
@@ -27,13 +44,19 @@
 	<div class="newsleterr">
 		<h3>Sumate a nuestro newsletter</h3>
 		<hr>
-		<form class="contact_form" action="newslater.php" method="post" name="contact_form">
+		<form class="contact_form" action="{{ url('/contacto/news')}}" method="post" name="contact_form">
+		{{ csrf_field() }}
 	 		<ul>
 				<li>
-					<input type="text" name="email" placeholder="*tu email" required/>
+					<input id="email" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required placeholder="*Email" />
+			        @if ($errors->has('email'))
+			        <span class="invalid-feedback">
+			            <strong>{{ $errors->first('email') }}</strong>
+			        </span>
+	            	@endif
 				</li>
 				<li>
-					<input type="submit" name="enviarnews" value="enviar" placeholder="ENVIAR">
+					<input type="submit" name="enviarnews" value="{{ __('enviar') }}" placeholder="ENVIAR">
 				</li>
 			</ul>
 		</div>	
