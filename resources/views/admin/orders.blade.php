@@ -1,9 +1,9 @@
-<html>
-<head>
-	<title>Nuevo Pedido</title>
-</head>
-<body>
-	<p>Se a realizado un nuevo pedido</p>
+@extends('layouts.app')
+ 
+@section('usuarioCompra')
+<div class="productos" id="productos">
+
+	<h1>Se a realizado un nuevo pedido</h1>
 	<p>Estos son los datos del cliente que realizo el pedido</p>
 	<u> 
 		<li>
@@ -28,6 +28,8 @@
 	</ul>
 	<p> <strong>Importe a pagar: </strong> {{ $cart->total}}</p>
 	<hr>
-	<p><a href="{{ url('/emails/order/'.$cart->id ) }}">Haz Clic aquí</a> para ver mas info</p>
-</body>
-</html>
+</div>
+<div>
+    @include('prefinal')
+</div>
+@endsection

@@ -60,6 +60,7 @@
                     @endforeach
                </tbody>
             </table>
+            <p><strong> Importe a Pagar:</strong>{{ auth()->user()->cart->total }}</p>
            <hr>
         <div>
         	<form method="post" action="{{ url ('/order') }}" >

@@ -18,8 +18,8 @@ class CartController extends Controller
     	$cart->status = "Pendiente";
     	$cart->order_date = Carbon::now();
     	$cart->save();
-
-    	$admins = User::where('admin',true)->get();
+        
+        $admins = User::where('admin',true)->get();
     	Mail::to($admins)->send(new NewOrder($client, $cart));
 
     	$cartStatus = 'Tu Pedido se ha registrado correctamente. Te contactaremos pronto por email';
