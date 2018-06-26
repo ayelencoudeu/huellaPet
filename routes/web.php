@@ -33,6 +33,7 @@ Route::delete('/cart', 'CartDetailController@destroy');
 
 Route::post('/order', 'CartController@update');
 
+
 Route::get('usuarioCompra', 'usuarioCompraController@show')->name('usuarioCompra');
 
 

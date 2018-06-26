@@ -10,10 +10,12 @@
 			<strong>Nombre:</strong>
 			{{ $user->nombre }}
 		</li>
+		<br/>
 		<li>
 			<strong>Email:</strong>
 			{{ $user->email }}
 		</li>
+		<br/>
 		<li>
 			<strong>Fecha de Pedido:</strong>
 			{{ $cart->order_date }}
@@ -24,10 +26,12 @@
 	<ul>
 		@foreach( $cart->details as $detalle)
 		<li> {{ $detalle->product->name }} x {{ $detalle->quantity }} ($ {{ $detalle->quantity * $detalle->product->price }})</li>
+		<hr>
 		@endforeach
 	</ul>
-	<p> <strong>Importe a pagar: </strong> {{ $cart->total}}</p>
-	<hr>
-	<p><a href="{{ url('/emails/order/'.$cart->id ) }}">Haz Clic aquí</a> para ver mas info</p>
+
+	<p><strong>Importe a pagar:_$</strong>{{ $cart->total}}</p>
+	
+	
 </body>
 </html>

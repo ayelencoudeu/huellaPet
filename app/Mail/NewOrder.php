@@ -9,6 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 use App\User;
 use App\Cart;
+use App\CartDetail;
 
 class NewOrder extends Mailable
 {
@@ -16,6 +17,7 @@ class NewOrder extends Mailable
 
     public $user;
     public $cart;
+    
 
     /**
      * Create a new message instance.
@@ -26,6 +28,7 @@ class NewOrder extends Mailable
     {
         $this->user = $user;
         $this->cart = $cart;
+        
     }
 
     /**
@@ -36,5 +39,9 @@ class NewOrder extends Mailable
     public function build()
     {
         return $this->view('emails.new-order')->subject('Nuevo Pedido');
+    }
+    public function buildOrden()
+    {
+       return $this->view('emails.order');
     }
 }
