@@ -5,12 +5,12 @@
     <div class="newsleterr" onclick="contraer(this)">
       <h3><strong>MODIFICAR DATOS</strong></h3>
 
-      <form class="contact_form" method="POST" enctype="multipart/form-data" action="{{ route('modificarDatos') }}">
+      <form class="contact_form" method="POST" enctype="multipart/form-data" action="{{ url('/modificarDatos/'.Auth::user()->id.'/update')}}">
          {{ csrf_field() }}
       <ul>
         <li>
 
-          <input id="nombre" type="text" name="nombre" class="form-control{{ $errors->has('nombre') ? ' is-invalid' : '' }}" name="nombre" value="{{ old('nombre') }}" required autofocus placeholder="{{ Auth::user()->nombre }}" />
+          <input id="nombre" type="text" name="nombre" class="form-control{{ $errors->has('nombre') ? ' is-invalid' : '' }}" name="nombre" value="{{ Auth::user()->nombre }}" required autofocus placeholder="{{ Auth::user()->nombre }}" />
             @if ($errors->has('nombre'))
             <span class="invalid-feedback">
               <strong>{{ $errors->first('nombre') }}</strong>
@@ -18,7 +18,7 @@
             @endif      
         </li>
         <li>
-         <input id="apellido" type="text" class="form-control{{ $errors->has('apellido') ? ' is-invalid' : '' }}" name="apellido" value="{{ old('apellido') }}" required autofocus placeholder="{{ Auth::user()->apellido }}"/>
+         <input id="apellido" type="text" class="form-control{{ $errors->has('apellido') ? ' is-invalid' : '' }}" name="apellido" value="{{ Auth::user()->apellido }}" required autofocus placeholder="{{ Auth::user()->apellido }}"/>
           @if ($errors->has('apellido'))
           <span class="invalid-feedback">
             <strong>{{ $errors->first('apellido') }}</strong>

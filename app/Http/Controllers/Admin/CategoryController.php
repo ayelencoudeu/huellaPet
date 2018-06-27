@@ -59,8 +59,10 @@ class CategoryController extends Controller
 
     public function edit($id)
     {   
+        $categoSelect = Category::All();
         $categories = Category::find($id);
-        return view('admin.categories.edit')->with(compact('categories'));// formulario de registro
+
+        return view('admin.categories.edit')->with(compact('categories', 'categoSelect'));// formulario de registro
     }
 
 

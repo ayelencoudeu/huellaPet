@@ -24,8 +24,8 @@
          <li>
            <select name="category_id"> 
               <option value="0">General</option>
-              @foreach ($categories as $datoCategoria )
-                <option value="{{ $datoCategoria->id }}">{{ $datoCategoria->name}}</option>
+              @foreach ($categoSelect as $datoCategoria )
+                <option value="{{ $datoCategoria->id }}">{{ $datoCategoria->name }}</option>
 
               @endforeach
            </select>    
