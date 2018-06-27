@@ -671,8 +671,71 @@ button {
 	}
 	.pagination a {
 		color: #5D5D5D;
-	    	
 	    text-decoration:none; 
+	}
+
+	.todoslosproductos a {
+		padding: 10px;
+		text-align: center;
+		text-decoration: none;
+		color: #1E3A54;
+		font-weight: bolder;
+		text-transform: uppercase;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 2px solid #1E3A54;
+		border-radius: 30px;
+		margin-bottom: 10px;
+	}
+
+	.tabla-categorias {
+		border: 2px solid #F2CD13;
+		text-align: center;
+		padding: 5px;
+		width: 100%;
+	}
+	.tabla-categorias th {
+		text-transform: uppercase;
+		font-weight: bolder;
+	}
+
+	.tabla-categorias td:nth-child(even) {
+    	background-color: #f9ecad;
+
+	}
+
+	.tabla-categorias td {
+		background-color: #F2CD13; 
+		padding: 10px;
+	}
+
+	.category-description {
+		width: 80%;
+	    height: 150px;
+	    padding: 10px;
+	    box-sizing: border-box;
+	    border: 2px solid #F2CD13;
+	    border-radius: 4px;
+	    resize: none;
+	}
+
+	.editCategory {
+		margin: 0 auto;
+		font-size: 1em;
+		color: #1E3A54;
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	.editCategory span {
+		border: 2px solid black;
+		padding: 10px;
+		border-radius: 20px;
+	}
+
+	.numeracion {
+		margin: 20px auto;
 	}
 
 @media (min-width: 768px) {

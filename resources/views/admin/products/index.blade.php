@@ -1,20 +1,18 @@
 @extends('layouts.app')
-             
 @section('home')
-            
 
- <div class="productos" id="productos">
-             <h1>Lsitado de Productos</h1>
-             <hr>
-             <div class="todoslosproductos">
-        <a href="{{ url('/admin/products/create') }}" class="btn btn-primary">Nuevo Producto</a>
-        <table class="table">
+    <div class="productos" id="productos">
+        <h1>Listado de Productos</h1>
+        <hr>
+        <div class="todoslosproductos">
+            <a href="{{ url('/admin/products/create') }}" class="btn btn-primary">Nuevo Producto</a>
+            <table class="table tabla-categorias">
                 <thead>
                     <tr>
                         <th class="text-center">#</th>
                         <th>Nombre</th>
-                        <th>Descripcion</th>
-                        <th>Categoria</th>
+                        <th>Descripción</th>
+                        <th>Categoría</th>
                         <th class="text-right">Precio</th>
                         <th class="text-right">Opciones</th>
                     </tr>
@@ -50,12 +48,12 @@
                         </td>
                     </tr>
                     @endforeach
-               </tbody>
+                </tbody>
             </table>
-            <div>           
-           {{ $products->links() }}    
-           </div>                     
+            <div class="numeracion">           
+               {{ $products->links() }}    
+            </div>                     
+        </div>
     </div>
-</div>
           
 @endsection
