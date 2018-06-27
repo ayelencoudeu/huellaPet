@@ -62,9 +62,9 @@
                 <div class="dropdown">
                   <button class="dropbtn">{{ Auth::user()->nombre }}</button>
                     <div class="dropdown-content">
-                      <a href="{{ route('modificarDatos') }}">Editar Datos</a>
+                      <a href="{{ url('/modificarDatos/'.Auth::user()->id.'/edit') }}">Editar Datos</a>
                       @if(auth()->user()->admin)
-                        <a href="{{ url('/admin/products') }}">Editar Productos</a>
+                        <a href="{{ url('/admin/productsmodificarDatos/{id}/edit') }}">Editar Productos</a>
                         <a href="{{ url('/admin/categories') }}">Editar Categorias</a>
                       @endif
                       <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Salir') }}</a>
@@ -89,10 +89,10 @@
             <nav class="navegadorprincipal">
                 <ul>
                   <li><a href="{{ url('/home') }}">{{ __('Inicio') }}</a></li>
-                  <li><a href="./nosotros.php">Nosotros</a></li>
+                  <li><a href="{{ url('/nosotros') }}">Nosotros</a></li>
                   <li><a href="{{ url('/categories') }}">Tienda</a></li>
-                  <li><a href="./faqs.php">Preguntas</a></li>
-                  <li><a href="#contacto">Contacto</a></li>
+                  <li><a href="{{ url('/faqs') }}">Preguntas</a></li>
+                  <li><a href="{{ url('/contacto') }}">Contacto</a></li>
 
                 </ul>
             </nav>
@@ -102,11 +102,12 @@
                               <img src="{{ asset('images/logoMenu.png') }}">
                             </button>
                             <div class="dropdown-content">
-                              <a href="{{ url('/home') }}">{{ __('Inicio') }}</a>
-                                <a href="./nosotros.php">Nosotros</a>
+                                <a href="{{ url('/home') }}">{{ __('Inicio') }}</a>
+                                <a href="{{ url('/nosotros') }}">Nosotros</a>
                                 <a href="{{ url('/categories/') }}">Tienda</a>
-                                <a href="./faqs.php">Preguntas</a>
-                                <a href="./index.php">Contacto</a>
+                                <a href="{{ url('/faqs') }}">Preguntas</a>
+                                <a href="{{ url('/contacto') }}">Contacto</a>
+                              
                             </div>
                         </div>
             </nav>
@@ -131,7 +132,15 @@
        <div>
         @yield('usuarioCompra')
     </div>
-
+    <div>
+        @yield('nosotros')
+    </div>
+    <div>
+        @yield('faqs')
+    </div>
+    <div>
+        @yield('contacto')
+    </div>
     
 
 <!-- Footer

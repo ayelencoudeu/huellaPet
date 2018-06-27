@@ -41,6 +41,7 @@
                         <td>{{ $detail->quantity}}</td>
                         <td>{{ $detail->quantity * $detail->product->price }}</td>
                         <td>
+                        <hr>
                     <form method="post" action="{{ url('/cart') }}">
                     	{{ csrf_field() }}
                     	{{ method_field('DELETE') }}
@@ -57,17 +58,21 @@
                             
                         </td>
                     </tr>
+                    
                     @endforeach
-               </tbody>
+            </tbody>
             </table>
+            <p><strong> Importe a Pagar:</strong> {{ auth()->user()->cart->total }}</p>
            <hr>
         <div>
         	<form method="post" action="{{ url ('/order') }}" >
         		{{ csrf_field() }}
 
            <button type="submit" rel="tooltip" title="Pagar" >
-                   <i class="fa fa-done">REALIZAR PEDIDO</i>
+                   <i class="fa fa-done">PAGO EFECTIVO</i>
            </button>
+           <a href="mercado pago" target="_blank" type="button" rel="tooltip" title="Pagar" >PAGO TARJETA</a>
+           
            </form>
 
        	</div>

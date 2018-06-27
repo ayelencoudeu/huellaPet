@@ -10,22 +10,43 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'testController@welcome');
+// Route::get('/', 'testController@welcome');
+
+
 
 Auth::routes();
+Route::get('/', 'HomeController@index')->name('home');
+
+
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('modificarDatos','ModificarController@modificar')->name('modificarDatos');
+
+
+Route::get('/search', 'SearchController@show'); //buscador
+Route::get('/products/json', 'SearchController@data'); //buscador
+
+
+Route::get('/modificarDatos/{id}/edit','ModificarController@edit')->name('modificarDatos');
+Route::post('/modificarDatos{id}/edit','ModificarController@update')->name('modificarDatos');
 
 Route::get('/products/{id}', 'ProductController@show'); //vista de producto
 Route::get('/categories', 'CategoryController@tienda'); //vista de producto
 Route::get('/categories/{category}', 'CategoryController@show'); //vista de producto
-Route::get('/search', 'SearchController@show'); //buscador
+
+Route::get('/nosotros', 'NosotrosController@nosotros')->name('nosotros'); //nosotros 
+Route::get('/faqs', 'FaqsController@faqs')->name('faqs'); // faqs 
+
+Route::get('/contacto', 'ContactoController@contacto')->name('contacto'); // contacto
+Route::post('/contacto', 'ContactoController@contactoEmail')->name('contacto'); // contacto
+Route::post('/contacto/news', 'ContactoController@contactoNews')->name('contacto'); // contacto
+
+//Route::get('/search', 'SearchController@show'); //buscador
 
 Route::post('/cart', 'CartDetailController@store');
 Route::delete('/cart', 'CartDetailController@destroy');
 
 Route::post('/order', 'CartController@update');
+
 
 Route::get('usuarioCompra', 'usuarioCompraController@show')->name('usuarioCompra');
 
