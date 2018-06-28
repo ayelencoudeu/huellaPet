@@ -64,7 +64,7 @@
                     <div class="dropdown-content">
                       <a href="{{ url('/modificarDatos/'.Auth::user()->id.'/edit') }}">Editar Datos</a>
                       @if(auth()->user()->admin)
-                        <a href="{{ url('/admin/productsmodificarDatos/{id}/edit') }}">Editar Productos</a>
+                        <a href="{{ url('/admin/products') }}">Editar Productos</a>
                         <a href="{{ url('/admin/categories') }}">Editar Categorias</a>
                       @endif
                       <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Salir') }}</a>

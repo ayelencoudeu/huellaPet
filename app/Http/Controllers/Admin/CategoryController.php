@@ -39,21 +39,8 @@ class CategoryController extends Controller
       $rules=[
           'name'=>'required|min:3',
           'description'=>'max:200',
-       
-
-
-<<<<<<< HEAD
       ];
-      /*nos manda a la pagina dnd estabamos y muestra los mensajes de error*/
-=======
-    public function edit($id)
-    {   
-        $categoSelect = Category::All();
-        $categories = Category::find($id);
-
-        return view('admin.categories.edit')->with(compact('categories', 'categoSelect'));// formulario de registro
-    }
->>>>>>> ac19c35a787d8ea563f6800973ba236faa753af5
+ 
 
       $this->validate($request, $rules, $messages);
      

@@ -5,7 +5,7 @@
     <div class="newsleterr" onclick="contraer(this)">
       <h3><strong>MODIFICAR DATOS</strong></h3>
 
-      <form class="contact_form" method="POST" enctype="multipart/form-data" action="{{ url('/modificarDatos/'.Auth::user()->id.'/update')}}">
+      <form class="contact_form" method="POST" enctype="multipart/form-data" action="{{ url('/modificarDatos/'.Auth::user()->id.'/edit')}}">
          {{ csrf_field() }}
       <ul>
         <li>
@@ -36,7 +36,7 @@
         <li>
           
         <li>
-          <input type="file" name="archivo" placeholder="Subi tu foto" />
+          <input type="file" name="imagen" placeholder="Subi tu foto" />
 
         </li>
         <li>

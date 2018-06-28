@@ -26,8 +26,9 @@ Route::get('/search', 'SearchController@show'); //buscador
 Route::get('/products/json', 'SearchController@data'); //buscador
 
 
-Route::get('/modificarDatos/{id}/edit','ModificarController@edit')->name('modificarDatos');
-Route::post('/modificarDatos{id}/edit','ModificarController@update')->name('modificarDatos');
+Route::get('/modificarDatos/{id}/edit', 'ModificarController@edit')->name('modificarDatos'); // formulario de Edicion
+Route::post('/modificarDatos/{id}/edit', 'ModificarController@update'); // actualizar
+
 
 Route::get('/products/{id}', 'ProductController@show'); //vista de producto
 Route::get('/categories', 'CategoryController@tienda'); //vista de producto

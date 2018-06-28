@@ -646,7 +646,7 @@ body {
 	    color: #1E3A54;
 	}
 
-<<<<<<< HEAD
+
 	.pagination {
 		display: flex;
 	    justify-content: space-between;
@@ -725,7 +725,7 @@ body {
 	.numeracion {
 		margin: 20px auto;
 	}
-=======
+
 	.faqs {
 	    display: flex;
 	    flex-direction: column;
@@ -756,7 +756,7 @@ body {
 		}
 
 	
->>>>>>> ac19c35a787d8ea563f6800973ba236faa753af5
+
 
 @media (min-width: 768px) {
 	.navegadorprincipalmobile {
