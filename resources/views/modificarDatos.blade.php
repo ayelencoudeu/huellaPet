@@ -10,7 +10,7 @@
       <ul>
         <li>
 
-          <input id="nombre" type="text" name="nombre" class="form-control{{ $errors->has('nombre') ? ' is-invalid' : '' }}" name="nombre" value="{{ Auth::user()->nombre }}" required autofocus placeholder="{{ Auth::user()->nombre }}" />
+          <input id="nombre" type="text" name="nombre" class="form-control{{ $errors->has('nombre') ? ' is-invalid' : '' }}" name="nombre" value="{{ Auth::user()->nombre }}" autofocus placeholder="{{ Auth::user()->nombre }}" />
             @if ($errors->has('nombre'))
             <span class="invalid-feedback">
               <strong>{{ $errors->first('nombre') }}</strong>
@@ -18,7 +18,7 @@
             @endif      
         </li>
         <li>
-         <input id="apellido" type="text" class="form-control{{ $errors->has('apellido') ? ' is-invalid' : '' }}" name="apellido" value="{{ Auth::user()->apellido }}" required autofocus placeholder="{{ Auth::user()->apellido }}"/>
+         <input id="apellido" type="text" class="form-control{{ $errors->has('apellido') ? ' is-invalid' : '' }}" name="apellido" value="{{ Auth::user()->apellido }}" autofocus placeholder="{{ Auth::user()->apellido }}"/>
           @if ($errors->has('apellido'))
           <span class="invalid-feedback">
             <strong>{{ $errors->first('apellido') }}</strong>
@@ -26,7 +26,7 @@
           @endif
         </li>
         <li>
-          <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required placeholder="*Clave" >
+          <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="*Clave" >
             @if ($errors->has('password'))
                 <span class="invalid-feedback">
                     <strong>{{ $errors->first('password') }}</strong>

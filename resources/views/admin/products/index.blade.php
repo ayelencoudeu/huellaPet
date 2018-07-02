@@ -50,9 +50,11 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="numeracion">           
-               {{ $products->links() }}    
-            </div>                     
+            <div class ="filaNumeracion">
+                <div class="numeracion">           
+                   {{ $products->links() }}    
+                </div>  
+            </div>                   
         </div>
     </div>
           

@@ -19,19 +19,32 @@ class ModificarController extends Controller
 
       public function update(Request $request, $id)
     {	
+      $usuario = User::find($id);
 
+      if($request->hasFile(['imagen'])){
     	 $file= $request['imagen'];
        $path = public_path() . '/images/usuario';
        $fileName=uniqid().$file->getClientOriginalName();
        $moved = $file->move($path, $fileName);
+       $usuario->imagen = $fileName;
+     }
+    	if( $request->input('nombre') ){
+       $usuario->nombre = $request->input('nombre');
+      }
     	
-    	$usuario = User::find($id);
-    	$usuario->nombre = $request->input('nombre');
-    	$usuario->apellido = $request->input('apellido');
-      $usuario->password = Hash::make($request['password']);
-      $usuario->imagen = $fileName;
+      if( $request->input('apellido') ){
+       $usuario->apellido = $request->input('apellido');
+      }
+    	
+      if( $request->input(['password']) ){
+        $usuario->password = Hash::make($request);
+      }
+      
       $usuario->save();
-      return view('modificarDatos');
+      
+     
+      $notification = 'Los datos se modificaron correctamente';
+      return view('modificarDatos')->with(compact('notification'));
 
     }
 }

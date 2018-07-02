@@ -17,7 +17,6 @@
          @endif
       <form class="contact_form" method="POST" enctype="multipart/form-data" action="{{ url('/admin/categories/'.$categories->id.'/edit') }}">
          {{ csrf_field() }}
-
          <ul>
             <li>
              <select name="category_id">
@@ -50,7 +49,6 @@
             </li>
             <span><a href="{{ url('/admin/categories/') }}" >Cancelar</a></span>
          </ul>
-
       </form>
      
     </div>

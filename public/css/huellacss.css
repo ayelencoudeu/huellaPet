@@ -18,7 +18,6 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
 }
 
 body {
@@ -87,10 +86,6 @@ body {
 	.carrito {
 		display: flex;
 		justify-content:flex-end;
-	}
-
-	.carrito img {
-		margin-right: 2%;
 	}
 
 	.carrito p {
@@ -165,6 +160,48 @@ body {
 	.dropdown:hover .dropdown-content {
 	  display: block;
 	}
+	.filaNumeracion{
+		max-height: 25px;
+		flex-direction: row;
+		text-align: justify;
+
+	}
+	.numeracion {
+		height: 40px;
+		margin: 0 auto;
+	}
+
+	.numeracion ul li{
+		display: inline-block;
+		align-self: center;
+		padding-bottom: 3px;
+		vertical-align: middle;
+	}
+
+	.numeracion ul li span{
+		font-size: 20px;
+		padding-bottom: 4px;
+	}
+
+	.p-carrito {
+		padding: 10px;
+	}
+
+	.importe-carrito {
+		margin: 10px auto;
+		display: flex;
+		justify-content: center;
+		align-self: center;
+	}
+	.importe-carrito input[type=button] {
+
+		color: #fff;
+		height: 40px;
+		width: 240px;
+		background-color: #1e3a54;
+		border: none;
+		border-radius: 20px;
+	}
 
 	.navegadorprincipal {
 	    display: none;
@@ -206,21 +243,42 @@ body {
 
 	.banner img {
 		width: 100%;
+		overflow: hidden;
 	}
 
-	.banneruno img{
-		float: left;
-		width: 48%;
+	
+
+	.searchBar {
+		background-color: #1e3a54;
+		padding: 20px; 
+		width: 95%;
+		margin: 0 auto;
 	}
 
-	.bannerdos img {
-		float: right;
-		width: 48%;
+	.formBar input {
+		width: 80%;
+		padding: 10px;
+		border-radius: 10px;
 	}
+
+	.searchIcon {
+		width: 15%;
+		padding: 10px;
+		border-radius: 10px;
+	}
+
+	/**
+	VISTA PRODUCTOS
+	**/
 
 	.productos {
 		width: 94%;
 		margin: 15px 3%;
+	}
+	
+	.imagenProducto {
+		width: 100%;
+		margin: 20px auto;
 	}
 
 	.productos h1 {
@@ -232,7 +290,53 @@ body {
 		width: 100%;
 		border: solid 1px #F2CD13 ;
 	}
+	
+	.productosDetalle h2 {
+		font-size: 1.4em;
+		font-weight: bolder;
+	}
 
+	.productosDetalle h4 {
+		font-size: 0.85em;
+		font-style: italic;
+	}
+
+	.productosDetalle h5 {
+		font-size: 2.5em;
+		font-weight: bolder;
+		margin: 20px auto;
+		color: #424242;
+	}
+
+	.productosDescripcion {
+		font-size: 0.8em;
+	}
+
+	.productosItems {
+		display: none;
+		margin: 5px auto;
+	}
+
+	.formProductos div {
+		margin: 20px auto;
+	}
+
+	.addProducto {
+		background-color: #1e3a54;
+		color: white;
+		font-weight: normal;
+		letter-spacing: 1px;
+		border: none;
+		padding: 10px;
+		border-radius: 30px;
+		margin: 10px auto;
+	}
+
+
+	/**************************************
+	Fin VISTA PRODUCTO
+	**************************************/
+	
 	.product { 
 		display: flex;
 		flex-direction: column;
@@ -319,7 +423,6 @@ body {
 	  padding-bottom: 10px;
 	  list-style-type: none;
 	  list-style-position: outside;
-
 	}
 
 	.contact_form li {
@@ -334,7 +437,7 @@ body {
 		color: black;
 	}
 
-	.contact_form ul li input[type=text], input[type=password], select {
+	.contact_form ul li input[type=text], input[type=password], input[type=number], select {
 		width: 80%;
 		height: 50px;
 		padding: 5px 8px;
@@ -585,7 +688,7 @@ body {
 	    margin: 4px auto;
 	}
 
-	.active, .accordion:hover {
+	.accordion:hover {
 	    background-color: #dab709; 
 	}
 
@@ -646,7 +749,6 @@ body {
 	    color: #1E3A54;
 	}
 
-
 	.pagination {
 		display: flex;
 	    justify-content: space-between;
@@ -672,8 +774,6 @@ body {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		border: 2px solid #1E3A54;
-		border-radius: 30px;
 		margin-bottom: 10px;
 	}
 
@@ -722,9 +822,7 @@ body {
 		border-radius: 20px;
 	}
 
-	.numeracion {
-		margin: 20px auto;
-	}
+
 
 	.faqs {
 	    display: flex;
@@ -734,29 +832,82 @@ body {
 	    margin: 3%;
 	}
 
-	.listapaginacion {
-			margin-left: 50%;
-			transform: translateX(-50%);
-		}
-
-		.pagination {
-			display: flex;
-		    justify-content: space-between;
-		    margin-bottom: 20px;
-		    font-size: 0.8em;
-		}
-		.pagination li {
-			display: inline-block;
-			list-style: none;
-		}
-		.pagination a {
-			color: #5D5D5D;
-		    	
-		    text-decoration:none; 
-		}
+/* estilos de la tienda */
 
 	
+	.tiendaheader label{
+		
+		cursor:pointer;
+		width: 100%;
+		max-width: 1000px;
+		font-size: 22px;
+		border:solid red 1px;
+		z-index: 10;
+	}
+	.tiendaheader h1{
+		
+		width: 100%;
+		max-width: 1000px;
+		font-size: 50px;
+		color: #1E3A54;
+		padding-left: 1%;
+	}
+	
 
+
+	#check{
+		display:none;
+	}
+
+	#check :checked ~ .menu li a{ 
+		width:400px;
+	}
+
+
+	.menu{
+		width: 400px;
+				
+		background: #1E3A54;
+		transition:all 300ms;
+		float:left;
+	}
+	.menu li{
+		list-style:none;
+		padding: 14px;
+		color:white;
+		width: 400px;
+		text-decoration:none;
+
+	}
+
+		.menu li a {
+		list-style:none;
+		color:white;
+		cursor:pointer;
+		transition:all 300ms;
+		
+		width: 400px;
+		text-decoration:none;
+
+	}
+
+	.menu li:hover{
+		background: rgba(0,0,0,0.2);
+	}
+	
+
+	.article h2{
+		font-size: 30px;
+		color: #1E3A54;
+		font-weight: 100; 
+		text-align: center;
+	}
+	.article p{
+		text-align: center;
+		font-size: 20px;
+		color: #1E3A54;
+		margin-top: 20px; 
+	}
 
 @media (min-width: 768px) {
 	.navegadorprincipalmobile {
@@ -844,6 +995,14 @@ body {
 		margin-top: 5px; 
 		float: right;
 		width: 30%;
+	}
+
+	.formBar input {
+		width: 90%;
+	}
+
+	.searchIcon {
+		width: 9%;
 	}
 
 	.todoslosproductos {
@@ -1030,6 +1189,24 @@ body {
 	/* Change the background color of the dropdown button when the dropdown content is shown */
 	.dropdown:hover .dropbtn {background-color: #3e8e41;}
 
+	/**************************************
+	VISTA PRODUCTOS
+	**************************************/
+
+	.productosItems {
+		display: inline-block;
+	}
+
+	.productosItems img {
+		width: 19.54027%;
+		padding: 5px;
+	}
+
+
+	/**************************************
+	Fin VISTA PRODUCTO
+	**************************************/
+
 }
 
 @media (min-width: 980px) {
@@ -1140,8 +1317,21 @@ body {
 	/* Change the background color of the dropdown button when the dropdown content is shown */
 	.dropdown:hover .dropbtn {background-color: #3e8e41;}
 
-}
+	/**************
+	VISTA PRODUCTOS
+	**************/
 
+	.imagenProducto {
+		width: 50%;
+		display: flex;
+		justify-content: center;
+	}
+
+	/*****************
+	Fin VISTA PRODUCTO
+	*****************/
+
+}
 
 @media (min-width: 1024px) {
 	.logo img {

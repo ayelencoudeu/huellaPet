@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-Use App\Category;
+use App\Category;
+use App\Product;
 
 class CategoryController extends Controller
 {
@@ -15,7 +16,8 @@ class CategoryController extends Controller
 
     public function tienda()
     {
-    	$mostrar = Category::All();
-    	return view('categories.tienda')->with(compact('mostrar'));
+    	$dato=Product::paginate(9);
+        $mostrar = Category::All();
+    	return view('categories.tienda')->with(compact('mostrar', 'dato'));
     }
 }

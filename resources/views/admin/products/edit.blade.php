@@ -44,32 +44,28 @@
                @endif
             </li>
             <li>
-               <textarea id="long_description" class="form-control{{ $errors->has('long_description') ? ' is-invalid' : '' }}" name="long_description" rows="5" required />{{ old('description',$product->description) }}</textarea>
+               <textarea id="long_description" class="form-control{{ $errors->has('long_description') ? ' is-invalid' : '' }} category-description" name="long_description" rows="5" required />{{ old('description',$product->description) }}</textarea>
                @if ($errors->has('long_description'))
                <span class="invalid-feedback">
                   <strong>{{ $errors->first('long_description') }}</strong>
                </span>
                @endif
             </li>
+            
             <li>
-               <input id="price" type="number" class="form-control{{ $errors->has('price') ? ' is-invalid' : '' }}" name="price" required value="{{ old('description', $product->price) }}" step="0.01" />
+               <input type="number" id="price" class="form-control{{ $errors->has('price') ? ' is-invalid' : '' }}" name="price" required value="{{ old('description', $product->price) }}" step="0.01">
                @if ($errors->has('price'))
-                  <span class="invalid-feedback">
-                     <strong>{{ $errors->first('price') }}</strong>
-                  </span>
-               @endif
-           
-            <input id="imagen" type="text" name="imagen" class="form-control" placeholder="Subi tu foto" class="form-control{{ $errors->has('imagen') ? ' is-invalid' : '' }}" />
-              @if ($errors->has('imagen'))
-               <span class="invalid-feedback">
-                  <strong>{{ $errors->first('imagen') }}</strong>
-               </span>
+                   <span class="invalid-feedback">
+                       <strong>{{ $errors->first('price') }}</strong>
+                   </span>
                @endif
             </li>
             <li>
-               <input type="submit" name="registro" value="{{ __('Guardar') }}" >
+               <small>Edita las imagenes desde el editor de imagenes</small>
             </li>
-            <span><a href="{{ url('/admin/categories/') }}" >Cancelar</a></span>
+            
+               <input type="submit" name="registro" value="{{ __('Crear') }}" >
+               <span><a href="{{ url('/admin/products/') }}" >Cancelar</a></span>
          </ul>
       </form>
    </div>

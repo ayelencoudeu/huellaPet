@@ -2,6 +2,7 @@
 
 @section('registro')
 <!-- Formulario html -->
+
     <div class="newsleterr" onclick="contraer(this)">
       <h3><strong>CREAR CUENTA</strong></h3>
 
@@ -72,3 +73,4 @@
       <p class="legales">Al registrarme, declaro que soy mayor de edad y acepto los Términos y condiciones y las Políticas de Huella Pet.</p>
     </div>
 @endsection
+<script src="{{ asset('js/formulario.js')}}" type="text/javascript"></script>
